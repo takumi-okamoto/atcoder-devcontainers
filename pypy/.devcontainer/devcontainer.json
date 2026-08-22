@@ -1,0 +1,25 @@
+{
+  "name": "AtCoder PyPy 3.11 Full Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // VS Code上でPyPyをデフォルトのPythonとして認識させる
+        "python.defaultInterpreterPath": "/usr/local/bin/pypy3",
+        "python.analysis.extraPaths": [
+          "/usr/local/lib/pypy3.11/site-packages"
+        ],
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.semanticHighlighting.enabled": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter"
+      ]
+    }
+  }
+}
