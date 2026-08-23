@@ -1,0 +1,20 @@
+name: atcoder-devcontainers
+
+services:
+  codon:
+    build:
+      context: ..
+      dockerfile: codon/.devcontainer/Dockerfile
+    command: sleep infinity
+    init: true
+    volumes:
+      - ..:/workspace:cached
+
+  pypy:
+    build:
+      context: ..
+      dockerfile: pypy/.devcontainer/Dockerfile
+    command: sleep infinity
+    init: true
+    volumes:
+      - ..:/workspace:cached

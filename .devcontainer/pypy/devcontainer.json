@@ -1,12 +1,12 @@
 {
-  "name": "AtCoder PyPy 3.11 Full Environment",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "AtCoder (PyPy 3.11)",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "pypy",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "none",
   "customizations": {
     "vscode": {
       "settings": {
-        // VS Code上でPyPyをデフォルトのPythonとして認識させる
         "python.defaultInterpreterPath": "/usr/local/bin/pypy3",
         "python.analysis.extraPaths": [
           "/usr/local/lib/pypy3.11/site-packages"

@@ -1,8 +1,9 @@
 {
-  "name": "AtCoder Codon 0.19.3 Environment",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "AtCoder (Codon 0.19.3)",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "codon",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "none",
   "containerEnv": {
     "CODON_PYTHON": "/usr/local/lib/libpython3.13.so"
   },
