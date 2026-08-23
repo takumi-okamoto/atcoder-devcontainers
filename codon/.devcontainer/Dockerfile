@@ -14,10 +14,17 @@ RUN apt-get update && apt-get install -y \
     libreadline6-dev libsqlite3-dev libssl-dev \
     lzma lzma-dev tk-dev uuid-dev zlib1g-dev \
     llvm-18-dev llvm-bolt ansifilter locales \
-    curl \
+    curl jq python3-venv \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
+
+# AtCoder のサンプル取得・テスト・提出用 CLI。
+# Codon 用 Python 環境とは分離し、両コンテナで同じコマンドを提供します。
+RUN python3 -m venv /opt/online-judge-tools \
+    && /opt/online-judge-tools/bin/pip install --no-cache-dir online-judge-tools \
+    && ln -s /opt/online-judge-tools/bin/oj /usr/local/bin/oj \
+    && ln -s /opt/online-judge-tools/bin/oj-api /usr/local/bin/oj-api
 
 # 2. Codonのインストール (0.19.3)
 RUN wget -q https://github.com/exaloop/codon/releases/download/v0.19.3/codon-linux-x86_64.tar.gz \

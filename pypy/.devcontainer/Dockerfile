@@ -10,8 +10,15 @@ ENV LANG=C.UTF-8
 RUN apt-get update && apt-get install -y \
     git wget bzip2 build-essential gfortran \
     libopenblas-dev liblapack-dev pkg-config libgeos-dev meson \
-    curl \
+    curl jq python3-venv \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# AtCoder のサンプル取得・テスト・提出用 CLI。
+# PyPy のパッケージ群とは分離し、ツール自体は CPython で動かします。
+RUN python3 -m venv /opt/online-judge-tools \
+    && /opt/online-judge-tools/bin/pip install --no-cache-dir online-judge-tools \
+    && ln -s /opt/online-judge-tools/bin/oj /usr/local/bin/oj \
+    && ln -s /opt/online-judge-tools/bin/oj-api /usr/local/bin/oj-api
 
 # 2. PyPy3.11 バイナリのインストール
 WORKDIR /tmp
