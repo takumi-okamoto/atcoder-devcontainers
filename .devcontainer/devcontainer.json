@@ -6,6 +6,9 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=atcoder-codex-home,target=/root/.codex,type=volume"
+  ],
   "shutdownAction": "stopContainer",
   "containerEnv": {
     "CODON_PYTHON": "/usr/local/lib/libpython3.13.so"
