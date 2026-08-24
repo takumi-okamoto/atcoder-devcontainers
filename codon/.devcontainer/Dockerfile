@@ -96,4 +96,7 @@ RUN wget -q -O numba.tar.gz https://files.pythonhosted.org/packages/1c/a0/e21f57
     && python3.13 -m pip install . \
     && cd /tmp && rm -rf numba*
 
+# Python 3.12 で削除された distutils を oj 専用環境に補います。
+RUN /opt/online-judge-tools/bin/pip install --no-cache-dir setuptools==75.8.2
+
 WORKDIR /workspace

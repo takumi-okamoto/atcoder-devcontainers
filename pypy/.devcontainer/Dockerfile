@@ -54,5 +54,8 @@ RUN pypy3 -m pip install --break-system-packages \
     acl-cpp-python==0.6.2 \
     git+https://github.com/not522/ac-library-python@27fdbb71cd0d566bdeb12746db59c9d908c6b5d5
 
+# Python 3.12 で削除された distutils を oj 専用環境に補います。
+RUN /opt/online-judge-tools/bin/pip install --no-cache-dir setuptools==75.8.2
+
 # 作業ディレクトリの設定
 WORKDIR /workspace
