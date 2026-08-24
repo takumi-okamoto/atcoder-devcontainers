@@ -1,21 +1,29 @@
 {
-  "name": "AtCoder (PyPy 3.11)",
-  "dockerComposeFile": "../compose.yaml",
-  "service": "pypy",
+  "name": "AtCoder (PyPy 3.11 + Codon 0.19.3)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
-  "shutdownAction": "none",
+  "shutdownAction": "stopContainer",
+  "containerEnv": {
+    "CODON_PYTHON": "/usr/local/lib/libpython3.13.so"
+  },
   "customizations": {
     "vscode": {
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/pypy3",
         "python.analysis.extraPaths": [
-          "/usr/local/lib/pypy3.11/site-packages"
+          "/usr/local/lib/pypy3.11/site-packages",
+          "/usr/local/lib/python3.13/site-packages"
         ],
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.semanticHighlighting.enabled": true
       },
       "extensions": [
+        "openai.chatgpt",
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.black-formatter"
