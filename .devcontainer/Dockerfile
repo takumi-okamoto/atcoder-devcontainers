@@ -73,6 +73,12 @@ RUN /usr/bin/python3 -m venv /opt/online-judge-tools \
     && ln -s /opt/online-judge-tools/bin/oj /usr/local/bin/oj \
     && ln -s /opt/online-judge-tools/bin/oj-api /usr/local/bin/oj-api
 
+# AtCoderのメモリ単位変更（KB/MBからKiB/MiB）をonline-judge-toolsに反映します。
+# 専用スクリプトをビルド時に適用することで、コンテナを再構築しても変更を維持します。
+COPY .devcontainer/patch-online-judge-tools.py /tmp/patch-online-judge-tools.py
+RUN /opt/online-judge-tools/bin/python /tmp/patch-online-judge-tools.py \
+    && rm /tmp/patch-online-judge-tools.py
+
 # PyPy向けライブラリ
 # AtCoder環境に含まれるパッケージ一覧をコメントとして残しています。
 # ビルド時間を抑えるため、実際に使うものだけをコメント解除してインストールします。
