@@ -13,6 +13,8 @@
   installation and PyPy-specific source helpers belong under `pypy/`. Packages
   used by Codon through CPython and Codon-specific source helpers belong under
   `codon/`.
+- When a file for PyPy and a file for Codon would have no differences at all,
+  create only the PyPy file.
 - Keep shared tools, including `online-judge-tools`, and shared VS Code
   extensions configured once in the common image or Dev Container definition.
 - Order Dockerfile layers to keep rebuilds fast: put expensive, stable runtime
