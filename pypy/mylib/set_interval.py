@@ -11,7 +11,7 @@ class ManagedIntervals:
     例えば、{1, 2, 3, 7, 8} という集合は、`[1, 4)` と `[7, 9)` という2つの区間として
     表現されます。
 
-    内部データ構造として `sortedcontainers.Sortedlist` を利用し、
+    内部データ構造として `sortedcontainers.SortedList` を利用し、
     区間の左端 `l` でソートされた状態を保つことで、各種操作を高速に実行します。
     区間はすべて右半開区間 `[l, r)` (l <= x < r) として扱われます。
 
@@ -45,9 +45,9 @@ class ManagedIntervals:
 
     def __init__(self) -> None:
         """`ManagedIntervals` のインスタンスを初期化します。"""
-        # 区間 (l, r) をタプルとして格納するSortedlist。l (タプルの第一要素) でソートされる。
-        self._intervals: sortedcontainers.Sortedlist[tuple[int, int]] = (
-            sortedcontainers.Sortedlist()
+        # 区間 (l, r) をタプルとして格納するSortedList。l (タプルの第一要素) でソートされる。
+        self._intervals: sortedcontainers.SortedList[tuple[int, int]] = (
+            sortedcontainers.SortedList()
         )
         # 全区間の長さの合計を保持する。O(1)でのアクセスを可能にするため。
         self._total_length: int = 0
