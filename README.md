@@ -60,3 +60,13 @@ CodonとPyPyはどちらも拡張子が `.py` のため、提出言語を拡張�
 ```
 
 Dockerfileを変更した後は `Dev Containers: Rebuild and Reopen in Container` を実行してください。
+
+## ライセンス
+
+このリポジトリ内の自作部分は [CC0 1.0 Universal](LICENSE) で公開しています。
+競技プログラミングの解答やライブラリなどへ、用途を問わず、許可や著作権表示なしで自由にコピー、変更、再配布できます。
+ただし各コンテストにおける規約には従ってください。
+特に[20261014版のAtCoder生成AI対策ルール](https://info.atcoder.jp/entry/llm-rules-ja)における参照URLの添付にはご注意ください。
+**このリポジトリには生成AIを利用したコードが含まれています**。
+
+Dev Containerが外部から取得する `online-judge-tools` などの第三者ソフトウェアには、それぞれのライセンスが適用されます。
